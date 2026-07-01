@@ -28,11 +28,6 @@ applyTo: "**"
 - Props 使用 `defineProps<T>()` 搭配 interface
 - Composables 使用 `use*` 命名
 
-### Backend (Hono)
-- 統一錯誤格式: `{ success: false, error: { code, message } }`
-- 受保護路由使用 `authMiddleware`
-- 透過 `c.env.*` 存取 bindings
-
 ## 審查回饋格式
 ```
 [類型] 檔案:行數 - 說明
