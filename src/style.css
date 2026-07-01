@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+/* Tarot design tokens (palette, fonts, dark mystical theme) are defined here
+   as part of the design-system-tokens task. */
+
+body {
+  margin: 0;
+}
