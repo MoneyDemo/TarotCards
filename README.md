@@ -13,6 +13,12 @@
 - 複製結果為文字、產生分享圖片（Web Share API，桌面版則下載 PNG）
 - 歷史抽卡紀錄（保留最近 50 筆，儲存在瀏覽器 localStorage）
 
+## 卡牌圖案風格
+
+- Header 提供風格選擇器，可在 **原創符號風** 與 **經典萊德偉特塔羅（1909）** 間切換
+- 風格選擇會記住在瀏覽器 `localStorage`
+- 經典萊德偉特塔羅牌面為 Pamela Colman Smith 繪製的公共領域作品，圖片來源為 Wikimedia Commons；如需重抓或更新素材，可執行 `scripts/fetch-rider-waite-images.mjs`
+
 ## 技術棧
 
 - [Vue 3](https://vuejs.org/) + `<script setup>` Composition API

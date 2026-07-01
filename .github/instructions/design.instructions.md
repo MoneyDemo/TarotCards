@@ -19,6 +19,12 @@ applyTo: "**"
 - **符號清晰**：大阿爾克那使用傳統象徵圖像（太陽、月亮、星星、命運之輪、高塔等）的獨特詮釋；小阿爾克那採 **Marseille-style pip** 排列（依數字重複花色符號，宮廷牌使用簡潔人物剪影）
 - **語義化設計 token**：所有色彩與字型皆透過 `@theme` token 引用，禁止硬編碼
 
+## 卡牌圖案風格系統
+
+- 可選風格清單集中定義於 `src/data/artStyles.ts` 的 `ART_STYLES` registry；新增風格時先在此註冊 `id`、名稱與預覽資訊
+- `useCardArtStyle()` 負責讀寫目前風格選擇（含 `localStorage` 持久化），`CardVisual.vue` 依 style id 在 `CardArt.vue`（原創 SVG）與 `CardArtImage.vue`（真實牌面/圖片風格）之間切換
+- 若未來再加入其他牌面風格，請保留既有 `original` 風格，並同步教會 `CardVisual.vue` 如何渲染新 style；圖片型風格也要補齊來源與授權註記
+
 ## 色彩系統
 
 ### 共享設計 Token
