@@ -1,8 +1,30 @@
 @import 'tailwindcss';
 
-/* Tarot design tokens (palette, fonts, dark mystical theme) are defined here
-   as part of the design-system-tokens task. */
+@theme {
+  --color-mystic-bg: #181225;
+  --color-mystic-bg-elevated: #241a38;
+  --color-mystic-gold: #d4af37;
+  --color-mystic-gold-soft: #e7c86a;
+  --color-mystic-amethyst: #6b46c1;
+  --color-mystic-text: #f4eefc;
+  --color-mystic-text-muted: #b9aecf;
+  --color-wands: #e97a4a;
+  --color-cups: #4ba3c7;
+  --color-swords: #b8bec9;
+  --color-pentacles: #9ea94b;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Noto Sans TC', system-ui, sans-serif;
+}
 
 body {
   margin: 0;
+  background-color: var(--color-mystic-bg);
+  color: var(--color-mystic-text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
 }
