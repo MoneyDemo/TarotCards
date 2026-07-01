@@ -102,4 +102,69 @@ describe('useShareImage', () => {
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:tarot-reading')
     expect(error.value).toBeNull()
   })
+
+  it('silently does nothing when the user cancels the native share sheet', async () => {
+    document.body.innerHTML = '<article id="reading-result-card">今日塔羅</article>'
+
+    const blob = new Blob(['png-data'], { type: 'image/png' })
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+    const abortError = new DOMException('Share canceled', 'AbortError')
+    const share = vi.fn().mockRejectedValue(abortError)
+    const canShare = vi.fn().mockReturnValue(true)
+
+    Object.defineProperty(global.navigator, 'share', {
+      configurable: true,
+      value: share,
+    })
+    Object.defineProperty(global.navigator, 'canShare', {
+      configurable: true,
+      value: canShare,
+    })
+
+    toPngMock.mockResolvedValue('data:image/png;base64,ZmFrZQ==')
+    vi.mocked(global.fetch).mockResolvedValue({
+      blob: async () => blob,
+    } as Response)
+
+    const { shareOrDownload, error, isProcessing } = useShareImage()
+
+    await shareOrDownload('reading-result-card')
+
+    expect(share).toHaveBeenCalledTimes(1)
+    expect(click).not.toHaveBeenCalled()
+    expect(error.value).toBeNull()
+    expect(isProcessing.value).toBe(false)
+  })
+
+  it('falls back to downloading the png when navigator.share fails for a reason other than cancellation', async () => {
+    document.body.innerHTML = '<article id="reading-result-card">今日塔羅</article>'
+
+    const blob = new Blob(['png-data'], { type: 'image/png' })
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+    const share = vi.fn().mockRejectedValue(new Error('Share failed'))
+    const canShare = vi.fn().mockReturnValue(true)
+
+    Object.defineProperty(global.navigator, 'share', {
+      configurable: true,
+      value: share,
+    })
+    Object.defineProperty(global.navigator, 'canShare', {
+      configurable: true,
+      value: canShare,
+    })
+
+    toPngMock.mockResolvedValue('data:image/png;base64,ZmFrZQ==')
+    vi.mocked(global.fetch).mockResolvedValue({
+      blob: async () => blob,
+    } as Response)
+
+    const { shareOrDownload, error } = useShareImage()
+
+    await shareOrDownload('reading-result-card', 'tarot-reading.png')
+
+    expect(share).toHaveBeenCalledTimes(1)
+    expect(URL.createObjectURL).toHaveBeenCalledWith(blob)
+    expect(click).toHaveBeenCalledTimes(1)
+    expect(error.value).toBeNull()
+  })
 })
