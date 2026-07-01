@@ -42,7 +42,7 @@ export interface TarotCard {
   /** English name, e.g. 'The Fool' */
   nameEn: string
   /** Short thematic keywords used for quick scanning / accessibility labels. */
-  keywords: string[]
+  keywords: readonly string[]
   /** Symbolic icon id rendered by CardArt.vue (see src/components/CardArt.vue). */
   icon: string
   /** Palette key: 'major' | Suit — resolved to Tailwind classes in CardArt.vue. */
