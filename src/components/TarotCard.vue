@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref, watch } from 'vue'
 
-import CardArt from './CardArt.vue'
+import CardVisual from './CardVisual.vue'
 import type { DrawResult } from '../types/tarot'
 
 interface Props {
@@ -112,12 +112,9 @@ onBeforeUnmount(() => {
               :class="result.orientation === 'reversed' ? 'rotate-180' : ''"
             >
               <div class="min-h-0 flex-1 px-2 pb-4">
-                <CardArt
+                <CardVisual
                   class="h-full w-full"
-                  :icon="result.card.icon"
-                  :arcana="result.card.arcana"
-                  :suit="result.card.suit"
-                  :number="result.card.number"
+                  :card="result.card"
                 />
               </div>
 
