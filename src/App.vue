@@ -5,6 +5,7 @@ import ActionBar from './components/ActionBar.vue'
 import ShareImageButton from './components/ShareImageButton.vue'
 import HistoryDrawer from './components/HistoryDrawer.vue'
 import CardArtStylePicker from './components/CardArtStylePicker.vue'
+import ThemeToggle from './components/ThemeToggle.vue'
 import { useTarotDraw } from './composables/useTarotDraw'
 
 const { current } = useTarotDraw()
@@ -14,7 +15,8 @@ const { current } = useTarotDraw()
   <div class="min-h-svh bg-mystic-bg text-mystic-text">
     <div class="mx-auto flex max-w-2xl flex-col gap-8 px-4 py-10 sm:py-14">
       <header class="relative text-center">
-        <div class="absolute right-0 top-0">
+        <div class="absolute right-0 top-0 flex items-center gap-2">
+          <ThemeToggle />
           <CardArtStylePicker />
         </div>
         <h1 class="font-heading text-4xl font-bold tracking-wide text-mystic-gold sm:text-5xl">🔮 塔羅牌每日運勢</h1>

@@ -16,6 +16,17 @@
   --font-body: 'Noto Sans TC', system-ui, sans-serif;
 }
 
+/* Light theme overrides — applied when html[data-theme="light"] */
+html[data-theme='light'] {
+  --color-mystic-bg: #f5f0ff;
+  --color-mystic-bg-elevated: #ede6fa;
+  --color-mystic-gold: #9a6e00;
+  --color-mystic-gold-soft: #b8860b;
+  --color-mystic-amethyst: #5b36aa;
+  --color-mystic-text: #1a1040;
+  --color-mystic-text-muted: #5a4a7a;
+}
+
 body {
   margin: 0;
   background-color: var(--color-mystic-bg);
