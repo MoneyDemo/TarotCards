@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import CardDeck from './components/CardDeck.vue'
+import QuestionInput from './components/QuestionInput.vue'
 import ReadingResult from './components/ReadingResult.vue'
+import LlmPromptPanel from './components/LlmPromptPanel.vue'
 import ActionBar from './components/ActionBar.vue'
 import ShareImageButton from './components/ShareImageButton.vue'
 import HistoryDrawer from './components/HistoryDrawer.vue'
@@ -23,9 +25,13 @@ const { current } = useTarotDraw()
         <p class="mt-2 font-body text-mystic-text-muted">抽一張牌，給自己今天一個溫柔的提醒</p>
       </header>
 
+      <QuestionInput />
+
       <CardDeck />
 
       <ReadingResult :result="current" />
+
+      <LlmPromptPanel :result="current" />
 
       <div class="flex flex-col items-center gap-3">
         <ActionBar :result="current" />
