@@ -107,11 +107,11 @@ onBeforeUnmount(() => {
               </span>
             </div>
 
-            <div
-              class="flex min-h-0 flex-1 flex-col transition-transform duration-500 ease-out"
-              :class="result.orientation === 'reversed' ? 'rotate-180' : ''"
-            >
-              <div class="min-h-0 flex-1 px-2 pb-4">
+            <div class="flex min-h-0 flex-1 flex-col">
+              <div
+                class="min-h-0 flex-1 px-2 pb-4 transition-transform duration-500 ease-out"
+                :class="result.orientation === 'reversed' ? 'rotate-180' : ''"
+              >
                 <CardVisual
                   class="h-full w-full"
                   :card="result.card"
