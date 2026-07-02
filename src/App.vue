@@ -17,7 +17,7 @@ const { current } = useTarotDraw()
         <div class="absolute right-0 top-0">
           <CardArtStylePicker />
         </div>
-        <h1 class="font-heading text-4xl text-mystic-gold sm:text-5xl">🔮 塔羅牌每日運勢</h1>
+        <h1 class="font-heading text-4xl font-bold tracking-wide text-mystic-gold sm:text-5xl">🔮 塔羅牌每日運勢</h1>
         <p class="mt-2 font-body text-mystic-text-muted">抽一張牌，給自己今天一個溫柔的提醒</p>
       </header>
 

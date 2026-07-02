@@ -12,7 +12,7 @@
   --color-cups: #4ba3c7;
   --color-swords: #b8bec9;
   --color-pentacles: #9ea94b;
-  --font-heading: 'Cinzel', serif;
+  --font-heading: 'Cinzel', 'Noto Serif TC', serif;
   --font-body: 'Noto Sans TC', system-ui, sans-serif;
 }
 
