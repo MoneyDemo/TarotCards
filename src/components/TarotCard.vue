@@ -108,7 +108,7 @@ onBeforeUnmount(() => {
             </div>
 
             <div
-              class="flex flex-1 flex-col transition-transform duration-500 ease-out"
+              class="flex min-h-0 flex-1 flex-col transition-transform duration-500 ease-out"
               :class="result.orientation === 'reversed' ? 'rotate-180' : ''"
             >
               <div class="min-h-0 flex-1 px-2 pb-4">
