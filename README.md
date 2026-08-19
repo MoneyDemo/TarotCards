@@ -18,6 +18,7 @@
 - Header 提供風格選擇器，可在 **原創符號風** 與 **經典萊德偉特塔羅（1909）** 間切換
 - 風格選擇會記住在瀏覽器 `localStorage`
 - 經典萊德偉特塔羅牌面為 Pamela Colman Smith 繪製的公共領域作品，圖片來源為 Wikimedia Commons；如需重抓或更新素材，可執行 `scripts/fetch-rider-waite-images.mjs`
+- `public/tarot-art/rider-waite-smith/tarot-card-list.json` 是這 78 張圖片的對照表，讓 AI（或人）可以直接從檔名判斷是哪張牌，不需要辨識圖片內容。每筆包含 `id`、`number`、`arcana`、`suit`（大阿爾克那為 `null`）、`fileName`、`nameZh`、`nameEn`。此檔案由 `scripts/generate-tarot-card-list.mjs` 直接讀取 `src/data/cards/` 的牌卡資料自動產生，確保不會與圖片檔名或牌卡資料脫節；若新增/修改牌卡資料或圖片，請重新執行 `node scripts/generate-tarot-card-list.mjs`
 
 ## 技術棧
 
@@ -38,6 +39,7 @@ npm run preview   # 預覽正式建置
 npm run test      # 執行 Vitest 單元測試
 npm run lint      # ESLint（含自動修正）
 npm run format    # Prettier 格式化
+npm run generate:tarot-card-list  # 重新產生 tarot-card-list.json 對照表
 ```
 
 ## 專案結構
