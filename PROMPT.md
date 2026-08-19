@@ -39,7 +39,7 @@
 
 如果找不到圖片，可以先使用替代圖片，不要因此停止製作。
 
-圖片資料夾在: public/images/tarot 裡面，裡面有 JSON: tarot-card-list.json 來說明每張圖片對應到的是哪一個塔羅牌
+圖片資料夾在: public\tarot-art\rider-waite-smith 裡面，裡面有 JSON: tarot-card-list.json 來說明每張圖片對應到的是哪一個塔羅牌
 
 ### 產生 AI 提示詞
 
